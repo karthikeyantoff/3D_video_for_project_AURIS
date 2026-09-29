@@ -36,8 +36,17 @@ export const TopBar: React.FC = () => {
         <span className="text-emerald-400 font-bold">REPLAN</span>
       </div>
 
-      {/* Telemetry Status Badges */}
+      {/* Telemetry Status Badges & 3D Drone CAD Switcher */}
       <div className="flex items-center gap-2 text-xs">
+        {/* 3D Drone CAD Studio Switcher Button */}
+        <button
+          onClick={() => useAurisStore.getState().setViewerMode('STUDIO')}
+          className="flex items-center gap-1.5 px-3 py-1 rounded bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/60 text-cyan-300 font-mono font-bold text-[11px] transition-all shadow-md shadow-cyan-950/40"
+        >
+          <Activity className="w-3.5 h-3.5 text-cyan-400" />
+          <span>3D DRONE CAD</span>
+        </button>
+
         {/* Comm Link */}
         <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900/90 border border-slate-800 text-[11px]">
           <Radio className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />

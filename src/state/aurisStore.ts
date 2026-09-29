@@ -31,6 +31,10 @@ interface AurisStore {
   workflowSteps: MissionWorkflowStep[];
   isWorkflowRunning: boolean;
   
+  // Drone 3D CAD Studio & Viewer Mode
+  viewerMode: 'STUDIO' | 'DISASTER';
+  setViewerMode: (mode: 'STUDIO' | 'DISASTER') => void;
+  
   // Mission Machine Logs
   missionPhase: MissionPhase;
   missionProgress: number; // 0 - 100%
@@ -146,6 +150,8 @@ export const useAurisStore = create<AurisStore>((set, get) => ({
   activeWorkflowStep: 1,
   workflowSteps: WORKFLOW_STEPS,
   isWorkflowRunning: false,
+  viewerMode: 'STUDIO',
+  setViewerMode: (mode) => set({ viewerMode: mode }),
 
   missionPhase: 'IDLE',
   missionProgress: 0,

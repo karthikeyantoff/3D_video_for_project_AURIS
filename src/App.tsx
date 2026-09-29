@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { CanvasContainer } from './components/3d/CanvasContainer';
 import { HUD } from './components/ui/HUD';
+import { DroneStudio } from './components/drone/DroneStudio';
 import { useAurisStore } from './state/aurisStore';
 
 export const App: React.FC = () => {
-  const { drone, setDroneTelemetry, setTargetWaypoint } = useAurisStore();
+  const { drone, viewerMode, setViewerMode, setDroneTelemetry, setTargetWaypoint } = useAurisStore();
 
   // Gentle Manual Keyboard Flight Controls (W/S: Pitch, A/D: Roll, Q/E: Yaw, R/F: Altitude)
   useEffect(() => {
@@ -71,9 +72,15 @@ export const App: React.FC = () => {
   }, [drone, setDroneTelemetry, setTargetWaypoint]);
 
   return (
-    <main className="w-screen h-screen relative bg-[#050811] overflow-hidden">
-      <CanvasContainer />
-      <HUD />
+    <main className="w-screen h-screen relative bg-[#040711] overflow-hidden">
+      {viewerMode === 'STUDIO' ? (
+        <DroneStudio onSwitchToDisasterMode={() => setViewerMode('DISASTER')} />
+      ) : (
+        <>
+          <CanvasContainer />
+          <HUD />
+        </>
+      )}
     </main>
   );
 };

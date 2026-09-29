@@ -1,0 +1,248 @@
+import React, { useEffect, useState, useRef } from 'react';
+import { useFrame, useThree } from '@react-three/fiber';
+import * as THREE from 'three';
+
+export interface PresentationStep {
+  step: number;
+  title: string;
+  subtitle: string;
+  targetCameraPos: [number, number, number];
+  targetLookAt: [number, number, number];
+  explodedProgress: number;
+  highlightedComponentId: string | null;
+  target3DMarkerPos?: [number, number, number];
+  durationSec: number;
+  narration: string;
+}
+
+export const PRESENTATION_STEPS: PresentationStep[] = [
+  {
+    step: 1,
+    title: 'AURIS Virtual Hexacopter',
+    subtitle: 'Autonomous Uncertainty-aware Rescue Intelligence System',
+    targetCameraPos: [0, 0.38, 1.15],
+    targetLookAt: [0, 0, 0],
+    explodedProgress: 0,
+    highlightedComponentId: null,
+    durationSec: 5.0,
+    narration: 'Industrial heavy-lift hexacopter architecture for multi-hazard disaster response and survivor localization.',
+  },
+  {
+    step: 2,
+    title: 'Symmetrical 6-Motor Radial Airframe',
+    subtitle: '60° Arm Spacing & Carbon Composite Frame Decks',
+    targetCameraPos: [0.95, 0.75, 0.75],
+    targetLookAt: [0, 0, 0],
+    explodedProgress: 0,
+    highlightedComponentId: 'frame',
+    target3DMarkerPos: [0, 0.05, 0],
+    durationSec: 5.0,
+    narration: 'Six long-span carbon fiber arms with CNC 6061-T6 aluminum clamps provide exceptional stability and wind resistance.',
+  },
+  {
+    step: 3,
+    title: 'BLDC Motors & 15" Carbon Propellers',
+    subtitle: 'M1 Front Motor • 3x CW & 3x CCW Alternating Authority',
+    targetCameraPos: [0.68, 0.16, 0.22],
+    targetLookAt: [0.58, 0.04, 0],
+    explodedProgress: 0,
+    highlightedComponentId: 'motor_1',
+    target3DMarkerPos: [0.58, 0.05, 0],
+    durationSec: 5.5,
+    narration: 'Industrial 4108 380KV outrunners with exposed copper windings delivering 19.2 kg total static rescue thrust.',
+  },
+  {
+    step: 4,
+    title: 'Aerodynamic Central Payload Fuselage',
+    subtitle: 'NACA Air Intake Louvers & Quick-Release Battery Latches',
+    targetCameraPos: [0.22, 0.18, 0.38],
+    targetLookAt: [0, 0.02, 0.05],
+    explodedProgress: 0,
+    highlightedComponentId: 'payload_body',
+    target3DMarkerPos: [0, 0.06, 0.05],
+    durationSec: 5.0,
+    narration: 'Streamlined composite shell protects sensitive avionics from dust and water while channeling airflow to internal heatsinks.',
+  },
+  {
+    step: 5,
+    title: 'Front Dual Vision: RGB + Thermal Camera',
+    subtitle: '4K Optical Sensor & MLX90640 LWIR Thermal Array',
+    targetCameraPos: [0.08, -0.04, 0.38],
+    targetLookAt: [0, -0.065, 0.20],
+    explodedProgress: 0,
+    highlightedComponentId: 'thermal_camera',
+    target3DMarkerPos: [0, -0.065, 0.20],
+    durationSec: 5.5,
+    narration: 'Co-aligned dual sensors provide real-time cross-verification, detecting 37°C human body heat through smoke and dark rubble.',
+  },
+  {
+    step: 6,
+    title: 'RPLIDAR A1M8 360° Spatial Scanner',
+    subtitle: '10Hz Omnidirectional Laser Obstacle Detection & SLAM',
+    targetCameraPos: [0.16, 0.22, 0.18],
+    targetLookAt: [0, 0.10, 0.01],
+    explodedProgress: 0,
+    highlightedComponentId: 'rplidar',
+    target3DMarkerPos: [0, 0.12, 0.01],
+    durationSec: 5.5,
+    narration: 'Top-mounted 360-degree laser range scanner maps rubble corridors and obstacles in real-time for safe flight paths.',
+  },
+  {
+    step: 7,
+    title: '4-Element MEMS Acoustic Array',
+    subtitle: 'Directional Time-Difference-of-Arrival (TDoA) Triangulation',
+    targetCameraPos: [0.0, -0.14, 0.32],
+    targetLookAt: [0, -0.095, 0.16],
+    explodedProgress: 0,
+    highlightedComponentId: 'acoustic_array',
+    target3DMarkerPos: [0, -0.095, 0.16],
+    durationSec: 5.0,
+    narration: 'Four gold MEMS microphone elements listen for human cries and distress tapping beneath collapsed concrete slabs.',
+  },
+  {
+    step: 8,
+    title: 'Underside Sensors: TFMini + Optical Flow',
+    subtitle: 'Downward Micro-LiDAR & Visual Motion Hold',
+    targetCameraPos: [0.22, -0.20, 0.16],
+    targetLookAt: [0, -0.08, 0],
+    explodedProgress: 0,
+    highlightedComponentId: 'tfmini',
+    target3DMarkerPos: [0, -0.07, 0],
+    durationSec: 5.0,
+    narration: 'Downward micro-LiDAR and optical flow camera maintain stable centimeter-accurate hover inside GPS-denied buildings.',
+  },
+  {
+    step: 9,
+    title: 'Dual Industrial Rescue Landing Gear',
+    subtitle: 'High-Clearance Carbon Skids with Silicone Dampeners',
+    targetCameraPos: [0.55, -0.18, 0.35],
+    targetLookAt: [0, -0.18, 0],
+    explodedProgress: 0,
+    highlightedComponentId: 'landing_gear',
+    target3DMarkerPos: [0, -0.22, 0],
+    durationSec: 5.0,
+    narration: '220mm ground clearance ensures safe landing on uneven rubble without damaging bottom sensors or the camera gimbal.',
+  },
+  {
+    step: 10,
+    title: 'Interactive 8-Layer Exploded Architecture',
+    subtitle: 'Modular Layer Separation for Maintenance & Inspection',
+    targetCameraPos: [0.85, 0.55, 0.85],
+    targetLookAt: [0, 0, 0],
+    explodedProgress: 0.85,
+    highlightedComponentId: null,
+    durationSec: 5.5,
+    narration: 'Modular CAD structure separating into Propellers, Motors, Arms, Frame, Electronics, Battery, Sensors, and Landing Skids.',
+  },
+  {
+    step: 11,
+    title: 'Internal Avionics & Edge-AI Compute Bay',
+    subtitle: 'Pixhawk 6X Autopilot + Raspberry Pi 5 & 13 TOPS Hailo-8 NPU',
+    targetCameraPos: [0.18, 0.22, 0.22],
+    targetLookAt: [0, 0.03, 0],
+    explodedProgress: 0.85,
+    highlightedComponentId: 'rpi_ai_hat',
+    target3DMarkerPos: [0, 0.05, 0.02],
+    durationSec: 6.0,
+    narration: 'Onboard 13 TOPS neural accelerator executes real-time AI perception and autonomous Next-Best-View repositioning.',
+  },
+  {
+    step: 12,
+    title: 'Reassembly to Flight Readiness',
+    subtitle: 'Full Structural & Electronic Integrity Convergence',
+    targetCameraPos: [0.45, 0.35, 0.95],
+    targetLookAt: [0, 0, 0],
+    explodedProgress: 0.0,
+    highlightedComponentId: null,
+    durationSec: 4.5,
+    narration: 'Reassembling all components into the mission-ready AURIS autonomous disaster response hexacopter.',
+  },
+  {
+    step: 13,
+    title: 'AURIS Autonomous Rescue Hexacopter',
+    subtitle: 'SENSE • VERIFY • DECIDE • REPLAN',
+    targetCameraPos: [0, 0.22, 1.10],
+    targetLookAt: [0, 0, 0],
+    explodedProgress: 0.0,
+    highlightedComponentId: null,
+    durationSec: 6.0,
+    narration: 'AURIS is fully primed for autonomous search, evidence verification, and life-saving rescue operations.',
+  },
+];
+
+interface PresentationModeProps {
+  isPlaying: boolean;
+  stepIndex: number;
+  isPaused: boolean;
+  onStepChange: (stepIndex: number) => void;
+  onUpdateExplodedProgress: (progress: number) => void;
+  onSelectComponent: (id: string | null) => void;
+}
+
+export const PresentationMode: React.FC<PresentationModeProps> = ({
+  isPlaying,
+  stepIndex,
+  isPaused,
+  onStepChange,
+  onUpdateExplodedProgress,
+  onSelectComponent,
+}) => {
+  const stepTimerRef = useRef<number>(0);
+  const { camera } = useThree();
+
+  const currentStep = PRESENTATION_STEPS[stepIndex] || PRESENTATION_STEPS[0];
+
+  // Smooth camera interpolation in useFrame
+  useFrame((_, delta) => {
+    if (!isPlaying) return;
+
+    // Advance step timer only when not paused
+    if (!isPaused) {
+      stepTimerRef.current += delta;
+      if (stepTimerRef.current >= currentStep.durationSec) {
+        stepTimerRef.current = 0;
+        if (stepIndex < PRESENTATION_STEPS.length - 1) {
+          onStepChange(stepIndex + 1);
+        } else {
+          onStepChange(0); // Loop
+        }
+      }
+    }
+
+    // Smooth camera position interpolation
+    const targetPos = new THREE.Vector3(...currentStep.targetCameraPos);
+    camera.position.lerp(targetPos, Math.min(1.0, delta * 3.0));
+
+    // Smooth camera lookAt interpolation
+    const targetLookAt = new THREE.Vector3(...currentStep.targetLookAt);
+    camera.lookAt(targetLookAt);
+  });
+
+  // Sync exploded progress & highlight whenever step changes
+  useEffect(() => {
+    if (isPlaying) {
+      stepTimerRef.current = 0;
+      onUpdateExplodedProgress(currentStep.explodedProgress);
+      onSelectComponent(currentStep.highlightedComponentId);
+    }
+  }, [stepIndex, isPlaying, currentStep, onUpdateExplodedProgress, onSelectComponent]);
+
+  return (
+    <>
+      {/* 3D Target Reticle Marker in Scene pointing directly to the highlighted part */}
+      {isPlaying && currentStep.target3DMarkerPos && (
+        <group position={currentStep.target3DMarkerPos}>
+          <mesh>
+            <sphereGeometry args={[0.015, 16, 16]} />
+            <meshBasicMaterial color="#00e5ff" opacity={0.8} transparent />
+          </mesh>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <ringGeometry args={[0.025, 0.035, 24]} />
+            <meshBasicMaterial color="#00e5ff" opacity={0.6} transparent side={THREE.DoubleSide} />
+          </mesh>
+          <pointLight color="#00e5ff" intensity={1.2} distance={0.4} />
+        </group>
+      )}
+    </>
+  );
+};
