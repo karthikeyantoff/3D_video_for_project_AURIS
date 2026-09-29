@@ -5,7 +5,8 @@ import * as THREE from 'three';
 import { Drone } from './Drone';
 import { ExplodedDrone } from './ExplodedDrone';
 import { SensorLabels } from './SensorLabels';
-import { PresentationMode, PRESENTATION_STEPS } from './PresentationMode';
+import { PresentationMode } from './PresentationMode';
+import { PRESENTATION_STEPS } from '../../data/presentationSteps';
 import { ComponentInspectorModal } from './ComponentInspectorModal';
 import { DroneInspectionMode, DroneCameraPreset } from '../../types/droneViewer';
 import { 
