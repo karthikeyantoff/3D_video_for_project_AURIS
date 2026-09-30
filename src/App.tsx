@@ -77,19 +77,11 @@ export const App: React.FC = () => {
   return (
     <main className="w-screen h-screen relative bg-[#040711] overflow-hidden">
       {viewerMode === 'VIDEO' ? (
-        <div className="w-full h-full relative">
-          <iframe
-            src="/auris_video/index.html"
-            className="w-full h-full border-0"
-            title="AURIS Video Presentation"
-          />
-          <button
-            onClick={() => setViewerMode('DISASTER')}
-            className="absolute top-2.5 right-4 z-50 px-3 py-1.5 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-mono font-bold rounded shadow-lg flex items-center gap-1.5 transition"
-          >
-            <span>✕ BACK TO 3D MISSION</span>
-          </button>
-        </div>
+        <iframe
+          src="/auris_video/index.html"
+          className="w-full h-full border-0"
+          title="AURIS Video Presentation"
+        />
       ) : viewerMode === 'DOCS' ? (
         <DocumentationPortal />
       ) : viewerMode === 'STUDIO' ? (
