@@ -40,13 +40,13 @@ export const TopBar: React.FC = () => {
       <div className="flex items-center gap-2 text-xs">
 
         {/* Video Presentation Studio Button */}
-        <a
-          href="/auris_video/index.html"
+        <button
+          onClick={() => useAurisStore.getState().setViewerMode('VIDEO')}
           className="flex items-center gap-1.5 px-3 py-1 rounded bg-rose-950/80 hover:bg-rose-900 border border-rose-500/80 text-rose-300 font-mono font-bold text-[11px] transition-all shadow-[0_0_10px_rgba(244,63,94,0.3)]"
         >
           <Video className="w-3.5 h-3.5 text-rose-400" />
           <span>VIDEO STUDIO</span>
-        </a>
+        </button>
 
         {/* 3D Drone CAD Studio Switcher Button */}
         <button

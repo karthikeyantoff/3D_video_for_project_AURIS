@@ -1,4 +1,4 @@
-export type DroneViewerMode = 'STUDIO' | 'DISASTER' | 'DOCS';
+export type DroneViewerMode = 'STUDIO' | 'DISASTER' | 'DOCS' | 'VIDEO';
 
 export type DroneInspectionMode = 'FLIGHT' | 'SENSOR' | 'EXPLODED';
 
