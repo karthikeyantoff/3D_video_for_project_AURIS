@@ -151,7 +151,7 @@ export const useAurisStore = create<AurisStore>((set, get) => ({
   activeWorkflowStep: 1,
   workflowSteps: WORKFLOW_STEPS,
   isWorkflowRunning: false,
-  viewerMode: 'STUDIO',
+  viewerMode: 'VIDEO',
   setViewerMode: (mode) => set({ viewerMode: mode }),
 
   missionPhase: 'IDLE',
