@@ -1,0 +1,62 @@
+[
+  {
+    "id": "section_01",
+    "title": "Team Introduction",
+    "time_range": "0:00 - 0:45",
+    "text": "Namaste. Welcome to Smart India Hackathon 2026.\n\nWe are Team AURIS.\n\nOur team brings together AI, computer vision, embedded systems, drone engineering and software development to solve one critical challenge in disaster response.\n\nWhen disasters happen, rescue teams need more than aerial images.\n\nThey need to know where survivors may be, what hazards surround them, how confident that information is, and where the system should search next.\n\nOur solution is AURIS \u2014 Autonomous Uncertainty-aware Rescue Intelligence System.\n\nAURIS is designed around one simple principle:\n\nSense. Verify. Decide. Replan.\n\nAnd this is our story."
+  },
+  {
+    "id": "section_02",
+    "title": "Why This Problem",
+    "time_range": "0:45 - 1:30",
+    "text": "In a disaster, the environment changes faster than humans can safely understand it.\n\nRoads may be flooded.\n\nBuildings may collapse.\n\nSmoke and darkness can hide survivors.\n\nAnd communication infrastructure may become unreliable.\n\nA normal camera can see only what is visible.\n\nThermal imaging can reveal heat signatures, but heat alone does not confirm a survivor.\n\nAcoustic sensing can provide another clue, but drone rotor noise can interfere with human sounds.\n\nLiDAR can understand surrounding geometry, but it cannot tell us everything that is hidden.\n\nSo the real challenge is not simply collecting more data.\n\nThe real challenge is deciding what that data means \u2014 and what the drone should do next.\n\nThat became the foundation of AURIS."
+  },
+  {
+    "id": "section_03",
+    "title": "Research & Gap Analysis",
+    "time_range": "1:30 - 2:15",
+    "text": "We started our work with research.\n\nWe studied UAV-based search and rescue, thermal survivor detection, autonomous disaster search, acoustic localization, drone-noise suppression, next-best-view planning, edge AI and LiDAR-based spatial sensing.\n\nOur research showed that these technologies can individually solve important parts of the rescue problem.\n\nBut an important engineering gap remains.\n\nDifferent systems focus on detection, mapping, sensing or communication as separate capabilities.\n\nWe asked:\n\nWhat happens when the evidence is incomplete or conflicting?\n\nWhat happens when RGB sees nothing, thermal detects a weak heat signature, and acoustic sensing detects a possible human sound?\n\nA simple detection system may stop at uncertainty.\n\nWe wanted our system to do something more.\n\nWe wanted uncertainty itself to become an input for the next decision."
+  },
+  {
+    "id": "section_04",
+    "title": "Our Core Insight",
+    "time_range": "2:15 - 2:50",
+    "text": "This led us to one important insight.\n\nA survivor not detected by one sensor does not mean the survivor is not there.\n\nNot detected does not mean not present.\n\nImagine a survivor partially hidden behind rubble.\n\nRGB provides weak evidence.\n\nThermal provides a possible heat signature.\n\nAcoustic sensing provides another weak signal.\n\nThe evidence does not agree.\n\nAURIS does not immediately declare a survivor \u2014 and it does not simply move on.\n\nInstead, it asks:\n\nWhat information do we need next?\n\nIt can reposition the drone, select a better viewpoint, re-inspect the area and gather additional evidence.\n\nThis is our core innovation:\n\nAdaptive Rescue Intelligence."
+  },
+  {
+    "id": "section_05",
+    "title": "Our Solution",
+    "time_range": "2:50 - 3:40",
+    "text": "To implement this idea, we designed AURIS as a multimodal edge-AI rescue platform.\n\nThe first layer is perception.\n\nRGB provides visual information.\n\nThermal provides heat signatures.\n\nThe microphone array provides acoustic evidence.\n\nLiDAR provides spatial information.\n\nGPS and inertial sensing provide position and motion.\n\nGas sensing provides environmental anomaly information.\n\nThe second layer is edge intelligence.\n\nRaspberry Pi 5 with AI acceleration performs local AI processing using Python, PyTorch and OpenCV.\n\nThe third layer is evidence fusion.\n\nInstead of trusting one sensor, AURIS combines multiple sources of evidence.\n\nThe fourth layer is adaptive decision-making.\n\nIf the evidence is uncertain, the system does not simply stop.\n\nIt searches for a better viewpoint.\n\nIt remembers what has already been explored.\n\nIt considers risk, battery and communication state.\n\nAnd it continuously updates the rescue mission.\n\nThe complete intelligence loop is:\n\nSense. Process. Fuse. Verify. Reinspect. Prioritize. Replan."
+  },
+  {
+    "id": "section_06_1",
+    "title": "Physical Platform",
+    "time_range": "3:40 - 4:15",
+    "text": "This is our physical AURIS test platform.\n\nThe hexacopter integrates the flight controller, onboard computing, AI acceleration and multimodal sensors into a single aerial platform.\n\nThe flight controller manages the aircraft, while Raspberry Pi provides the onboard intelligence.\n\nOur platform integrates RGB, thermal, LiDAR, optical flow, GPS, acoustic and environmental sensing capabilities."
+  },
+  {
+    "id": "section_06_2",
+    "title": "Multimodal Perception",
+    "time_range": "4:15 - 4:50",
+    "text": "Now we move to perception.\n\nThe RGB pipeline searches for visual survivor and hazard candidates.\n\nThe thermal pipeline checks for heat signatures, especially in low-visibility environments.\n\nThe acoustic module analyzes sound direction and potential human distress signals while accounting for UAV noise.\n\nLiDAR provides surrounding spatial information for obstacle awareness and local mapping.\n\nTogether, these sensors allow AURIS to see, sense, hear and understand its surroundings from multiple perspectives."
+  },
+  {
+    "id": "section_06_3",
+    "title": "Uncertainty & Reinspection",
+    "time_range": "4:50 - 5:40",
+    "text": "Now comes the most important part of our demonstration.\n\nAURIS identifies a possible survivor candidate.\n\nBut the evidence is uncertain.\n\nThe RGB confidence is moderate.\n\nThe thermal signal is stronger.\n\nThe acoustic signal is weak.\n\nThe system does not immediately confirm the survivor.\n\nInstead, it identifies the area as uncertain.\n\nIt then selects a better viewpoint.\n\nThe drone repositions.\n\nIt gathers new visual, thermal and acoustic evidence.\n\nThe new evidence is stronger and more consistent.\n\nThe system can now increase its confidence in the candidate.\n\nThis is the difference between simply detecting something and intelligently verifying it."
+  },
+  {
+    "id": "section_06_4",
+    "title": "Adaptive Mission & Dashboard",
+    "time_range": "5:40 - 6:30",
+    "text": "All of this intelligence is connected to our ground-station dashboard.\n\nThe operator can monitor the drone position, mission state, sensor information, detected candidates and surrounding hazards.\n\nAURIS also considers operational constraints such as battery, communication state, search coverage and environmental risk.\n\nSo the drone does not simply follow a fixed route.\n\nIts mission can adapt based on what it discovers.\n\nIf an area is confidently cleared, the drone can continue searching elsewhere.\n\nIf an area remains uncertain, it can return and gather more evidence.\n\nThis creates a continuous closed-loop rescue system:\n\nSense. Verify. Decide. Replan."
+  },
+  {
+    "id": "section_07",
+    "title": "Innovation & Closing",
+    "time_range": "6:30 - 7:15",
+    "text": "AURIS is not just a drone with multiple sensors.\n\nIts core innovation is Adaptive Rescue Intelligence.\n\nFirst, Uncertainty-Aware Search \u2014 because not detected does not mean not present.\n\nSecond, Multi-Sensor Verification \u2014 combining RGB, thermal and acoustic evidence before increasing confidence.\n\nThird, Next-Best-View Reinspection \u2014 gathering additional evidence when the current viewpoint is insufficient.\n\nFourth, Search Memory \u2014 remembering explored and uncertain areas to reduce redundant searching.\n\nFifth, Risk-Aware Mission Planning \u2014 considering hazards, battery, communication and mission priorities.\n\nAll these capabilities form one closed-loop intelligence system.\n\nBecause in a disaster, seeing everything is impossible.\n\nBut an intelligent system can decide what to look at next.\n\nAURIS transforms uncertain sensor information into adaptive rescue decisions.\n\nFrom detection\u2026\n\nto verification\u2026\n\nto decision\u2026\n\nand finally\u2026\n\nreplanning.\n\nAURIS \u2014 Autonomous Uncertainty-aware Rescue Intelligence System.\n\nSense. Verify. Decide. Replan.\n\nWe are Team AURIS.\n\nThank you."
+  }
+]
