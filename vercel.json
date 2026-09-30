@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/auris_video/(.*)",
+      "destination": "/auris_video/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
