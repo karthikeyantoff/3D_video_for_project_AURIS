@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 interface PropellerProps {
-  motorIndex: number;
+  motorIndex?: number;
   position: [number, number, number];
   rotationDirection: 'CW' | 'CCW';
   isFlying?: boolean;
@@ -15,7 +15,7 @@ interface PropellerProps {
 }
 
 export const Propeller: React.FC<PropellerProps> = ({
-  motorIndex,
+  motorIndex: _motorIndex,
   position,
   rotationDirection,
   isFlying = false,

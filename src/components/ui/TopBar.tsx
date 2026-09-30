@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, ShieldAlert, Activity, Compass } from 'lucide-react';
+import { Radio, ShieldAlert, Activity, Compass, BookOpen } from 'lucide-react';
 import { useAurisStore } from '../../state/aurisStore';
 
 export const TopBar: React.FC = () => {
@@ -38,13 +38,23 @@ export const TopBar: React.FC = () => {
 
       {/* Telemetry Status Badges & 3D Drone CAD Switcher */}
       <div className="flex items-center gap-2 text-xs">
+
         {/* 3D Drone CAD Studio Switcher Button */}
         <button
           onClick={() => useAurisStore.getState().setViewerMode('STUDIO')}
-          className="flex items-center gap-1.5 px-3 py-1 rounded bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/60 text-cyan-300 font-mono font-bold text-[11px] transition-all shadow-md shadow-cyan-950/40"
+          className="flex items-center gap-1.5 px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white font-mono font-bold text-[11px] transition-all shadow-md"
         >
           <Activity className="w-3.5 h-3.5 text-cyan-400" />
           <span>3D DRONE CAD</span>
+        </button>
+
+        {/* Master Documentation Site Switcher Button */}
+        <button
+          onClick={() => useAurisStore.getState().setViewerMode('DOCS')}
+          className="flex items-center gap-1.5 px-3 py-1 rounded bg-cyan-950/90 hover:bg-cyan-900 border border-cyan-500/80 text-cyan-300 font-mono font-bold text-[11px] transition-all shadow-[0_0_10px_rgba(0,229,255,0.3)]"
+        >
+          <BookOpen className="w-3.5 h-3.5 text-cyan-300" />
+          <span>DOCS PORTAL</span>
         </button>
 
         {/* Comm Link */}

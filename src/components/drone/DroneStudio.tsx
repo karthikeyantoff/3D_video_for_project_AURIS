@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, ContactShadows, Grid } from '@react-three/drei';
-import * as THREE from 'three';
 import { Drone } from './Drone';
 import { ExplodedDrone } from './ExplodedDrone';
-import { SensorLabels } from './SensorLabels';
 import { PresentationMode } from './PresentationMode';
 import { PRESENTATION_STEPS } from '../../data/presentationSteps';
 import { ComponentInspectorModal } from './ComponentInspectorModal';
@@ -22,8 +20,10 @@ import {
   Sliders,
   Plane,
   MapPin,
-  Square
+  Square,
+  BookOpen
 } from 'lucide-react';
+import { useAurisStore } from '../../state/aurisStore';
 
 interface DroneStudioProps {
   onSwitchToDisasterMode?: () => void;
@@ -275,13 +275,22 @@ export const DroneStudio: React.FC<DroneStudioProps> = ({ onSwitchToDisasterMode
         {/* Mode Actions */}
         <div className="flex items-center gap-2">
           {onSwitchToDisasterMode && !isPresentationPlaying && (
-            <button
-              onClick={onSwitchToDisasterMode}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 hover:text-white font-mono text-xs font-semibold tracking-wider transition-all shadow-lg"
-            >
-              <MapPin className="w-4 h-4 text-cyan-400" />
-              DISASTER MISSION SIMULATOR
-            </button>
+            <>
+              <button
+                onClick={() => useAurisStore.getState().setViewerMode('DOCS')}
+                className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-cyan-950/90 hover:bg-cyan-900 border border-cyan-500/80 text-cyan-300 font-mono text-xs font-bold tracking-wider transition-all shadow-lg shadow-cyan-950/50"
+              >
+                <BookOpen className="w-4 h-4 text-cyan-300" />
+                MASTER DOCS PORTAL
+              </button>
+              <button
+                onClick={onSwitchToDisasterMode}
+                className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 hover:text-white font-mono text-xs font-semibold tracking-wider transition-all shadow-lg"
+              >
+                <MapPin className="w-4 h-4 text-cyan-400" />
+                DISASTER MISSION SIMULATOR
+              </button>
+            </>
           )}
 
           {/* Presentation Tour Button */}

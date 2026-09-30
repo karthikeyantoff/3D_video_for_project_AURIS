@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { CameraMode, DroneTelemetry, MissionPhase } from '../types/drone';
+import { DroneViewerMode } from '../types/droneViewer';
 import { SensorState, FusionConfidence } from '../types/sensors';
 import { IncidentPacket } from '../types/incident';
 import { SECTORS } from '../data/disasterScenario';
@@ -32,8 +33,8 @@ interface AurisStore {
   isWorkflowRunning: boolean;
   
   // Drone 3D CAD Studio & Viewer Mode
-  viewerMode: 'STUDIO' | 'DISASTER';
-  setViewerMode: (mode: 'STUDIO' | 'DISASTER') => void;
+  viewerMode: DroneViewerMode;
+  setViewerMode: (mode: DroneViewerMode) => void;
   
   // Mission Machine Logs
   missionPhase: MissionPhase;

@@ -4,6 +4,8 @@ import { HUD } from './components/ui/HUD';
 import { DroneStudio } from './components/drone/DroneStudio';
 import { useAurisStore } from './state/aurisStore';
 
+import { DocumentationPortal } from './components/docs/DocumentationPortal';
+
 export const App: React.FC = () => {
   const { drone, viewerMode, setViewerMode, setDroneTelemetry, setTargetWaypoint } = useAurisStore();
 
@@ -11,6 +13,7 @@ export const App: React.FC = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (['input', 'textarea'].includes((e.target as HTMLElement)?.tagName?.toLowerCase())) return;
+      if (viewerMode === 'DOCS') return; // Do not intercept keys when reading docs
 
       // Slow & gentle manual step size for crystal clear observation
       const step = e.shiftKey ? 0.6 : 0.22;
@@ -69,11 +72,13 @@ export const App: React.FC = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [drone, setDroneTelemetry, setTargetWaypoint]);
+  }, [drone, viewerMode, setDroneTelemetry, setTargetWaypoint]);
 
   return (
     <main className="w-screen h-screen relative bg-[#040711] overflow-hidden">
-      {viewerMode === 'STUDIO' ? (
+      {viewerMode === 'DOCS' ? (
+        <DocumentationPortal />
+      ) : viewerMode === 'STUDIO' ? (
         <DroneStudio onSwitchToDisasterMode={() => setViewerMode('DISASTER')} />
       ) : (
         <>

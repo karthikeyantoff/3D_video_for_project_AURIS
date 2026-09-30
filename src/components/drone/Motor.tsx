@@ -2,7 +2,7 @@ import React from 'react';
 import * as THREE from 'three';
 
 interface MotorProps {
-  motorIndex: number;
+  motorIndex?: number;
   position: [number, number, number];
   rotationDirection: 'CW' | 'CCW';
   explodedOffsetY?: number;
@@ -12,7 +12,7 @@ interface MotorProps {
 }
 
 export const Motor: React.FC<MotorProps> = ({
-  motorIndex,
+  motorIndex: _motorIndex,
   position,
   rotationDirection,
   explodedOffsetY = 0,
