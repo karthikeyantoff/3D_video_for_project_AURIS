@@ -1,8 +1,25 @@
 {
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/auris_video/(.*)",
-      "destination": "/auris_video/$1"
+      "source": "/auris_video",
+      "destination": "/auris_video/index.html"
+    },
+    {
+      "source": "/auris_video/",
+      "destination": "/auris_video/index.html"
+    },
+    {
+      "source": "/video",
+      "destination": "/auris_video/index.html"
+    },
+    {
+      "source": "/video/",
+      "destination": "/auris_video/index.html"
+    },
+    {
+      "source": "/auris_video/:match*",
+      "destination": "/auris_video/:match*"
     },
     {
       "source": "/(.*)",
