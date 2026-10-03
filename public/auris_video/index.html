@@ -87,7 +87,7 @@
         <span class="font-tactical font-bold text-xl tracking-wider text-auris-cyan text-glow-cyan">AURIS</span>
       </div>
       <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-auris-cyan/10 text-auris-cyan border border-auris-cyan/30">SIH 2026</span>
-      <span class="text-xs text-slate-400 hidden xl:inline font-mono">AUTONOMOUS UNCERTAINTY-AWARE RESCUE INTELLIGENCE SYSTEM</span>
+      <span class="text-xs text-slate-400 hidden xl:inline font-mono">TEAM NEXUS FORGE • MENTOR: DR. K ARUN KUMAR</span>
     </div>
 
     <!-- Live Telemetry / Core loop badge -->
@@ -107,7 +107,7 @@
           ◀ PREV
         </button>
         <button id="btnPlay" class="px-4 py-1.5 bg-auris-cyan hover:bg-cyan-300 text-black font-tactical font-bold text-xs rounded transition flex items-center gap-1.5 shadow-lg shadow-auris-cyan/30">
-          <span id="playIcon">▶</span> <span id="playText">PLAY ALL (VOICEOVER)</span>
+          <span id="playIcon">▶</span> <span id="playText">PLAY ALL (HUMAN VOICE)</span>
         </button>
         <button id="btnNext" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-tactical rounded border border-slate-600 transition">
           NEXT ▶
@@ -140,7 +140,7 @@
     <!-- Realtime Subtitles Box -->
     <div class="w-full max-w-5xl mx-auto mb-2 px-4 py-1.5 bg-black/75 border border-auris-cyan/30 rounded-lg text-center backdrop-blur shadow-lg">
       <p id="subtitleText" class="text-auris-cyan text-sm lg:text-base font-medium tracking-wide transition-all duration-200 leading-snug">
-        “Namaste. Welcome to Smart India Hackathon 2026. We are Team AURIS.”
+        “Namaste, and welcome to Smart India Hackathon 2026. We are Team Nexus Forge.”
       </p>
     </div>
 
@@ -167,7 +167,7 @@
 
         <div class="flex items-center space-x-2">
           <span class="w-2 h-2 rounded-full bg-auris-green animate-pulse"></span>
-          <span class="hidden sm:inline text-slate-400">VOICE:</span> <span class="text-auris-cyan font-semibold">Prabhat (Neural)</span>
+          <span class="hidden sm:inline text-slate-400">AUDIO:</span> <span class="text-auris-cyan font-semibold">Real Human Narration</span>
         </div>
       </div>
     </div>
@@ -179,88 +179,80 @@
   <!-- JAVASCRIPT APPLICATION LOGIC -->
   <script>
     // ==========================================
-    // 1. DATA & SECTIONS DEFINITION
+    // 1. DATA & 8 SECTIONS DEFINITION
     // ==========================================
     const SECTIONS = [
       {
         id: "section_01",
         num: "01",
         title: "TEAM INTRODUCTION",
-        subtitle: "Autonomous Uncertainty-aware Rescue Intelligence System",
+        subtitle: "Team Nexus Forge • Mentor Dr. K Arun Kumar",
         audio: "audio/section_01.mp3",
+        sub: "“Namaste, and welcome to Smart India Hackathon 2026. We are Team Nexus Forge, guided by our mentor Dr. K Arun Kumar. I’m Karthikeyan T, Team Lead, along with Nandhakishore, Harish Rohith, Akilan, Keerthika, and Ananthi.”",
         render: renderSection01
       },
       {
         id: "section_02",
         num: "02",
         title: "WHY THIS PROBLEM MATTERS",
-        subtitle: "Disaster Complexity & The Fundamental Sensing Challenge",
+        subtitle: "Disaster Urgency & The Sensing Challenge",
         audio: "audio/section_02.mp3",
+        sub: "“In a disaster, every second matters. Floods, collapsed structures, smoke and darkness hide survivors. The real challenge is understanding data, dealing with uncertainty, and deciding what the drone should do next.”",
         render: renderSection02
       },
       {
         id: "section_03",
         num: "03",
         title: "RESEARCH & GAP ANALYSIS",
-        subtitle: "From Isolated UAV Sensors to Closed-Loop Intelligence",
+        subtitle: "From Isolated UAV Capabilities to Closed-Loop Intelligence",
         audio: "audio/section_03.mp3",
+        sub: "“Before building AURIS, we studied UAV SAR, thermal detection, acoustic localization, noise suppression, NBV planning, edge AI and LiDAR. We wanted uncertainty to become an input for the next decision.”",
         render: renderSection03
       },
       {
         id: "section_04",
         num: "04",
-        title: "THE CORE INSIGHT",
-        subtitle: "Not Detected ≠ Not Present | Uncertainty-Aware Search",
+        title: "OUR CORE INSIGHT",
+        subtitle: "Not Detected ≠ Not Present | Adaptive Rescue Intelligence",
         audio: "audio/section_04.mp3",
+        sub: "“Not detected does not mean not present. AURIS asks: What information do we need next? It repositions the drone, selects a better viewpoint, re-inspects the area, and gathers additional evidence.”",
         render: renderSection04
       },
       {
         id: "section_05",
         num: "05",
         title: "OUR SOLUTION: AURIS",
-        subtitle: "Multimodal Edge-AI Architecture & 4-Layer Intelligence Engine",
+        subtitle: "Multimodal Edge-AI Architecture (RPi5 + AI HAT+)",
         audio: "audio/section_05.mp3",
+        sub: "“To turn this idea into reality, we designed AURIS as a multimodal edge-AI platform: Perception, Edge AI (Raspberry Pi 5 + AI acceleration), Evidence Fusion, and Adaptive Decision-Making.”",
         render: renderSection05
       },
       {
-        id: "section_06_1",
-        num: "06.1",
-        title: "PHYSICAL PROTOTYPE",
-        subtitle: "Hardware Breakdown: Pixhawk 2.4.8 + RPi5 + AI HAT+ & Sensor Suite",
-        audio: "audio/section_06_1.mp3",
-        render: renderSection06_1
-      },
-      {
-        id: "section_06_2",
-        num: "06.2",
-        title: "MULTIMODAL PERCEPTION DEMO",
-        subtitle: "Realtime RGB + MLX90640 Thermal + MEMS Acoustic + RPLIDAR A1M8",
-        audio: "audio/section_06_2.mp3",
-        render: renderSection06_2
-      },
-      {
-        id: "section_06_3",
-        num: "06.3",
-        title: "UNCERTAINTY & REINSPECTION",
-        subtitle: "Hero Demo: Next-Best-View Trajectory & Confidence Escalation (61% → 91%)",
-        audio: "audio/section_06_3.mp3",
-        render: renderSection06_3
-      },
-      {
-        id: "section_06_4",
-        num: "06.4",
-        title: "ADAPTIVE MISSION & DASHBOARD",
-        subtitle: "Closed-Loop Ground Station Dispatch & Real-Time SAR Incident Packets",
-        audio: "audio/section_06_4.mp3",
-        render: renderSection06_4
+        id: "section_06",
+        num: "06",
+        title: "PROTOTYPE & MULTIMODAL DEMO",
+        subtitle: "Hexacopter Hardware, 4-Way Sensor Feeds & Reinspection",
+        audio: "audio/section_06.mp3",
+        sub: "“This is our physical AURIS test platform: Pixhawk manages the aircraft, Raspberry Pi 5 provides onboard AI. When evidence is uncertain, AURIS selects a better viewpoint and verifies the candidate.”",
+        render: renderSection06
       },
       {
         id: "section_07",
         num: "07",
-        title: "INNOVATION & CLOSING",
-        subtitle: "Adaptive Rescue Intelligence — SIH 2026",
+        title: "ADAPTIVE MISSION & DASHBOARD",
+        subtitle: "Ground-Station Telemetry, Dynamic Risk Planning & NDRF Dispatch",
         audio: "audio/section_07.mp3",
+        sub: "“The intelligence does not stop at verification. Our ground-station dashboard tracks telemetry, battery, and environmental risk. The mission adapts based on what the system discovers.”",
         render: renderSection07
+      },
+      {
+        id: "section_08",
+        num: "08",
+        title: "INNOVATION & CLOSING",
+        subtitle: "6 Pillars of Adaptive Rescue Intelligence • Team Nexus Forge",
+        audio: "audio/section_08.mp3",
+        sub: "“AURIS transforms uncertain sensor information into adaptive rescue decisions: From detection, to verification, to decision, and finally, replanning. We are Team Nexus Forge. Thank you.”",
+        render: renderSection08
       }
     ];
 
@@ -276,7 +268,7 @@
     const navDots = document.getElementById("navDots");
 
     // ==========================================
-    // 2. SLIDE RENDERING TEMPLATES (ORIGINAL 1ST VERSION RESTORED)
+    // 2. SLIDE RENDERING TEMPLATES (8 SECTIONS)
     // ==========================================
 
     function renderSection01() {
@@ -293,7 +285,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center my-auto">
             <div class="lg:col-span-7 space-y-4">
               <div class="inline-block px-3 py-1 rounded bg-auris-cyan/10 border border-auris-cyan/40 text-auris-cyan text-xs font-mono font-bold tracking-wider">
-                TACTICAL SEARCH & RESCUE SYSTEM
+                TEAM NEXUS FORGE • SIH 2026
               </div>
               <h1 class="font-tactical text-5xl lg:text-7xl font-extrabold text-white tracking-tight leading-none">
                 <span class="text-auris-cyan text-glow-cyan">AURIS</span>
@@ -306,17 +298,21 @@
                 <span class="font-semibold text-white">S</span>ystem
               </p>
               
-              <div class="p-3.5 bg-auris-card/90 hud-border rounded-lg space-y-2 max-w-xl">
-                <div class="text-xs font-mono text-auris-yellow font-bold uppercase tracking-wider">The Core Mission Loop</div>
-                <div class="flex items-center gap-2.5 text-sm font-tactical font-bold text-white">
-                  <span class="px-2.5 py-1 rounded bg-slate-800 text-auris-cyan border border-auris-cyan/30">SENSE</span>
-                  <span>➔</span>
-                  <span class="px-2.5 py-1 rounded bg-slate-800 text-auris-yellow border border-auris-yellow/30">VERIFY</span>
-                  <span>➔</span>
-                  <span class="px-2.5 py-1 rounded bg-slate-800 text-auris-orange border border-auris-orange/30">DECIDE</span>
-                  <span>➔</span>
-                  <span class="px-2.5 py-1 rounded bg-slate-800 text-auris-green border border-auris-green/30">REPLAN</span>
-                </div>
+              <div class="p-3.5 bg-auris-card/90 hud-border rounded-lg space-y-1.5 max-w-xl text-xs font-mono">
+                <div class="text-auris-yellow font-bold uppercase tracking-wider">TEAM CREDENTIALS</div>
+                <div class="text-slate-300"><b class="text-white">Mentor:</b> Dr. K Arun Kumar</div>
+                <div class="text-slate-300"><b class="text-white">Team Lead:</b> Karthikeyan T</div>
+                <div class="text-slate-400">Nandhakishore • Harish Rohith • Akilan • Keerthika • Ananthi</div>
+              </div>
+
+              <div class="flex items-center gap-2 text-xs font-tactical font-bold text-white">
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-auris-cyan border border-auris-cyan/30">SENSE</span>
+                <span>➔</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-auris-yellow border border-auris-yellow/30">VERIFY</span>
+                <span>➔</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-auris-orange border border-auris-orange/30">DECIDE</span>
+                <span>➔</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-auris-green border border-auris-green/30">REPLAN</span>
               </div>
             </div>
 
@@ -327,8 +323,8 @@
                 <div class="absolute inset-3 rounded-full border border-dashed border-auris-yellow/30 animate-spin" style="animation-duration: 25s; animation-direction: reverse;"></div>
                 <div class="text-center">
                   <div class="text-3xl">🚁</div>
-                  <div class="font-tactical font-bold text-base text-white mt-1">TEAM AURIS</div>
-                  <div class="text-[9px] font-mono text-slate-400">SIH 2026 FINALIST</div>
+                  <div class="font-tactical font-bold text-base text-white mt-1">NEXUS FORGE</div>
+                  <div class="text-[9px] font-mono text-slate-400">SIH 2026 HARDWARE</div>
                 </div>
               </div>
               <div class="mt-3 grid grid-cols-2 gap-2 w-full text-center text-xs font-mono">
@@ -366,10 +362,10 @@
           <div class="my-auto space-y-4">
             <div class="text-center max-w-3xl mx-auto space-y-1">
               <h2 class="font-tactical text-3xl lg:text-4xl font-bold text-white">
-                Disaster Environments Change <span class="text-auris-orange text-glow-orange">Faster Than Humans Can React</span>
+                In a Disaster, <span class="text-auris-orange text-glow-orange">Every Second Matters</span>
               </h2>
               <p class="text-slate-300 text-xs md:text-sm">
-                Flooded roads, collapsed concrete rubble, heavy smoke, severed communications, and trapped victims.
+                Flooded roads • Collapsed concrete voids • Heavy smoke & darkness • Severed communications
               </p>
             </div>
 
@@ -380,7 +376,7 @@
                   <span class="font-tactical font-bold text-auris-cyan text-xs">RGB OPTICAL</span>
                   <span class="text-[10px] font-mono text-rose-400">BLIND IN SMOKE</span>
                 </div>
-                <p class="text-xs text-slate-300">Can only see daylight surface. Obstructed by night, dust, and concrete rubble.</p>
+                <p class="text-xs text-slate-300">Can only see daylight surface. Blocked by dust, darkness, and rubble.</p>
               </div>
 
               <div class="p-3 bg-auris-card/90 hud-border rounded-lg space-y-1.5">
@@ -388,7 +384,7 @@
                   <span class="font-tactical font-bold text-auris-orange text-xs">THERMAL FIR</span>
                   <span class="text-[10px] font-mono text-amber-400">HEAT ≠ SURVIVOR</span>
                 </div>
-                <p class="text-xs text-slate-300">Reveals raw heat signatures, but hot motors and heated debris create false positives.</p>
+                <p class="text-xs text-slate-300">Reveals heat signatures, but hot motors and heated metal cause false alarms.</p>
               </div>
 
               <div class="p-3 bg-auris-card/90 hud-border rounded-lg space-y-1.5">
@@ -396,7 +392,7 @@
                   <span class="font-tactical font-bold text-auris-yellow text-xs">ACOUSTIC ARRAY</span>
                   <span class="text-[10px] font-mono text-amber-400">ROTOR NOISE</span>
                 </div>
-                <p class="text-xs text-slate-300">Provides distress sound direction, but UAV propeller wash heavily masks human audio.</p>
+                <p class="text-xs text-slate-300">Provides distress sound direction, but UAV propeller wash heavily masks audio.</p>
               </div>
 
               <div class="p-3 bg-auris-card/90 hud-border rounded-lg space-y-1.5">
@@ -404,7 +400,7 @@
                   <span class="font-tactical font-bold text-emerald-400 text-xs">3D LIDAR SCAN</span>
                   <span class="text-[10px] font-mono text-rose-400">GEOMETRY ONLY</span>
                 </div>
-                <p class="text-xs text-slate-300">Maps obstacle geometry, but cannot identify whether a cavity contains a survivor.</p>
+                <p class="text-xs text-slate-300">Maps obstacle geometry, but cannot identify whether a cavity holds a survivor.</p>
               </div>
             </div>
 
@@ -446,7 +442,7 @@
               <h2 class="font-tactical text-2xl lg:text-3xl font-bold text-white">
                 State of the Art vs. <span class="text-auris-cyan">AURIS Engineering Extension</span>
               </h2>
-              <p class="text-slate-400 text-xs font-mono mt-0.5">We synthesized 8 key research domains in autonomous search & rescue:</p>
+              <p class="text-slate-400 text-xs font-mono mt-0.5">Synthesized 8 key research domains in autonomous search & rescue:</p>
             </div>
 
             <!-- Research Domain Matrix -->
@@ -500,7 +496,7 @@
                   <span>✖</span> THE EXISTING ENGINEERING GAP
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                  Existing systems treat sensors as separate streams. When evidence is ambiguous or occluded by concrete, the system stops at uncertainty and misses victims.
+                  Existing systems treat sensors as separate streams. When evidence is ambiguous or conflicting, the system stops at uncertainty and misses victims.
                 </p>
               </div>
               <div class="p-3.5 bg-auris-cyan/10 border border-auris-cyan/40 rounded-xl space-y-1">
@@ -508,7 +504,7 @@
                   <span>✔</span> THE AURIS CLOSED LOOP
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                  AURIS uses <b class="text-white">uncertainty itself as a control trigger</b> to actively reposition the hexacopter, gather multi-angle evidence, and verify candidates.
+                  AURIS uses <b class="text-white">uncertainty itself as an input for the next decision</b> to actively reposition the hexacopter and verify candidates.
                 </p>
               </div>
             </div>
@@ -528,7 +524,7 @@
           <div class="flex justify-between items-center border-b border-auris-border/40 pb-2">
             <div class="text-xs font-mono text-auris-cyan tracking-widest flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-auris-cyan"></span>
-              SECTION 04 • THE CORE INSIGHT
+              SECTION 04 • OUR CORE INSIGHT
             </div>
             <div class="text-xs font-mono text-slate-400">FOUNDATIONAL PRINCIPLE</div>
           </div>
@@ -543,7 +539,7 @@
                 “NOT DETECTED <span class="text-rose-500">≠</span> NOT PRESENT”
               </h2>
               <p class="text-slate-300 text-xs md:text-sm max-w-2xl mx-auto">
-                A survivor trapped beneath shattered concrete will not register high confidence on a single sensor at a single static viewpoint.
+                A survivor partially hidden behind rubble will not register high confidence on a single sensor at a single static viewpoint.
               </p>
             </div>
 
@@ -551,7 +547,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-center">
               <div class="p-3 bg-slate-900/90 hud-border rounded-lg text-center space-y-1.5">
                 <div class="text-xs font-mono text-slate-400">RGB OPTICAL</div>
-                <div class="text-rose-400 font-tactical font-bold text-lg">NO VISUAL</div>
+                <div class="text-rose-400 font-tactical font-bold text-lg">WEAK EVIDENCE</div>
                 <div class="text-[10px] text-slate-400">Occluded by concrete slab</div>
                 <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
                   <div class="bg-rose-500 h-full w-[12%]"></div>
@@ -560,8 +556,8 @@
 
               <div class="p-3 bg-slate-900/90 hud-border rounded-lg text-center space-y-1.5">
                 <div class="text-xs font-mono text-slate-400">THERMAL FIR</div>
-                <div class="text-amber-400 font-tactical font-bold text-lg">WEAK HEAT (34.2°C)</div>
-                <div class="text-[10px] text-slate-400">Partial heat plume escaping</div>
+                <div class="text-amber-400 font-tactical font-bold text-lg">POSSIBLE HEAT (34°C)</div>
+                <div class="text-[10px] text-slate-400">Partial heat signature</div>
                 <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
                   <div class="bg-amber-400 h-full w-[48%]"></div>
                 </div>
@@ -569,17 +565,17 @@
 
               <div class="p-3 bg-slate-900/90 hud-border rounded-lg text-center space-y-1.5">
                 <div class="text-xs font-mono text-slate-400">ACOUSTIC ARRAY</div>
-                <div class="text-amber-400 font-tactical font-bold text-lg">FAINT SOUND</div>
-                <div class="text-[10px] text-slate-400">Intermittent knock candidate</div>
+                <div class="text-amber-400 font-tactical font-bold text-lg">WEAK HUMAN SOUND</div>
+                <div class="text-[10px] text-slate-400">Intermittent distress cue</div>
                 <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
                   <div class="bg-amber-400 h-full w-[38%]"></div>
                 </div>
               </div>
 
               <div class="p-3 bg-auris-card hud-border rounded-lg text-center space-y-1.5 border-auris-yellow/50">
-                <div class="text-xs font-mono text-auris-yellow font-bold">AURIS DECISION TRIGGER</div>
+                <div class="text-xs font-mono text-auris-yellow font-bold">AURIS DECISION</div>
                 <div class="text-auris-cyan font-tactical font-bold text-base">TRIGGER NBV REINSPECT</div>
-                <div class="text-[10px] text-emerald-400 font-mono">Reposition to Angle B</div>
+                <div class="text-[10px] text-emerald-400 font-mono">Gather New Evidence</div>
                 <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
                   <div class="bg-auris-cyan h-full w-[85%] animate-pulse"></div>
                 </div>
@@ -590,11 +586,11 @@
             <div class="p-3 bg-auris-panel/80 rounded-xl border border-auris-cyan/30 flex flex-col md:flex-row items-center justify-between gap-2">
               <div class="space-y-0.5">
                 <div class="text-[10px] font-mono text-slate-400">CONVENTIONAL SYSTEMS ASK:</div>
-                <div class="text-xs font-tactical text-rose-400 font-semibold">“Is there a survivor right here right now?” ➔ <span class="text-slate-300">Reports FALSE NEGATIVE & leaves.</span></div>
+                <div class="text-xs font-tactical text-rose-400 font-semibold">“Is there a survivor right now?” ➔ <span class="text-slate-300">Stops at uncertainty.</span></div>
               </div>
               <div class="space-y-0.5 text-right">
                 <div class="text-[10px] font-mono text-auris-cyan">AURIS ASKS:</div>
-                <div class="text-xs font-tactical text-emerald-400 font-semibold">“What information do we need next?” ➔ <span class="text-white">REPOSITIONS & VERIFIES.</span></div>
+                <div class="text-xs font-tactical text-emerald-400 font-semibold">“What information do we need next?” ➔ <span class="text-white">REPOSITIONS & GATHERS EVIDENCE.</span></div>
               </div>
             </div>
           </div>
@@ -621,9 +617,9 @@
           <div class="my-auto space-y-3">
             <div>
               <h2 class="font-tactical text-2xl lg:text-3xl font-bold text-white">
-                Multimodal Edge-AI <span class="text-auris-cyan">Rescue Architecture</span>
+                Multimodal Edge-AI <span class="text-auris-cyan">Rescue Platform</span>
               </h2>
-              <p class="text-slate-400 text-xs font-mono">Hierarchical perception, edge inference, evidence fusion, and adaptive mission replanning:</p>
+              <p class="text-slate-400 text-xs font-mono">From perception to edge computing, evidence fusion, and adaptive decision-making:</p>
             </div>
 
             <!-- 4 Architecture Layers -->
@@ -631,13 +627,13 @@
               <div class="p-3 bg-auris-card/90 hud-border rounded-xl space-y-2 flex flex-col justify-between">
                 <div>
                   <div class="px-2 py-0.5 w-max rounded bg-auris-cyan/20 text-auris-cyan text-[9px] font-mono font-bold">LAYER 1</div>
-                  <h3 class="font-tactical font-bold text-sm text-white mt-1">MULTIMODAL PERCEPTION</h3>
+                  <h3 class="font-tactical font-bold text-sm text-white mt-1">PERCEPTION</h3>
                   <ul class="text-[11px] font-mono text-slate-400 space-y-1 mt-1.5">
-                    <li>• RGB Optical (Daylight)</li>
-                    <li>• MLX90640 FIR Thermal (32×24)</li>
-                    <li>• MEMS Acoustic Array</li>
-                    <li>• RPLIDAR 360° Laser</li>
-                    <li>• GPS + IMU + Gas Sensor</li>
+                    <li>• RGB Visual Information</li>
+                    <li>• Thermal Heat Signatures</li>
+                    <li>• Microphone Array Audio</li>
+                    <li>• LiDAR Spatial Geometry</li>
+                    <li>• GPS + IMU + Gas Sensing</li>
                   </ul>
                 </div>
                 <div class="text-[10px] font-mono text-auris-cyan bg-slate-900/80 p-1.5 rounded text-center">Multi-Spectrum Ingestion</div>
@@ -646,16 +642,16 @@
               <div class="p-3 bg-auris-card/90 hud-border rounded-xl space-y-2 flex flex-col justify-between">
                 <div>
                   <div class="px-2 py-0.5 w-max rounded bg-emerald-500/20 text-emerald-400 text-[9px] font-mono font-bold">LAYER 2</div>
-                  <h3 class="font-tactical font-bold text-sm text-white mt-1">EDGE AI (13.2 TOPS)</h3>
+                  <h3 class="font-tactical font-bold text-sm text-white mt-1">EDGE INTELLIGENCE</h3>
                   <ul class="text-[11px] font-mono text-slate-400 space-y-1 mt-1.5">
                     <li>• Raspberry Pi 5 (Quad ARM)</li>
-                    <li>• AI HAT+ Hailo-8 NPU</li>
-                    <li>• Optimized YOLOv8-Nano</li>
-                    <li>• PyTorch Radiometrics</li>
-                    <li>• Rotor Noise Cancellation</li>
+                    <li>• AI HAT+ Acceleration</li>
+                    <li>• Python, PyTorch & OpenCV</li>
+                    <li>• Local Real-time Inference</li>
+                    <li>• Zero Cloud Dependency</li>
                   </ul>
                 </div>
-                <div class="text-[10px] font-mono text-emerald-400 bg-slate-900/80 p-1.5 rounded text-center">Zero Cloud Latency</div>
+                <div class="text-[10px] font-mono text-emerald-400 bg-slate-900/80 p-1.5 rounded text-center">Local Edge Processing</div>
               </div>
 
               <div class="p-3 bg-auris-card/90 hud-border rounded-xl space-y-2 flex flex-col justify-between">
@@ -663,367 +659,129 @@
                   <div class="px-2 py-0.5 w-max rounded bg-auris-yellow/20 text-auris-yellow text-[9px] font-mono font-bold">LAYER 3</div>
                   <h3 class="font-tactical font-bold text-sm text-white mt-1">EVIDENCE FUSION</h3>
                   <ul class="text-[11px] font-mono text-slate-400 space-y-1 mt-1.5">
-                    <li>• Bayesian Cross-Modal engine</li>
+                    <li>• Multi-Sensor Cross-Validation</li>
                     <li>• False-Alarm Rejection Filter</li>
-                    <li>• Entropy Uncertainty Metric</li>
-                    <li>• Confidence Weight Escalation</li>
+                    <li>• Combines Multiple Clues</li>
+                    <li>• Uncertainty Assessment</li>
                   </ul>
                 </div>
-                <div class="text-[10px] font-mono text-auris-yellow bg-slate-900/80 p-1.5 rounded text-center">RGB * Thermal * Audio</div>
+                <div class="text-[10px] font-mono text-auris-yellow bg-slate-900/80 p-1.5 rounded text-center">Multi-Source Verification</div>
               </div>
 
               <div class="p-3 bg-auris-card/90 hud-border rounded-xl space-y-2 flex flex-col justify-between">
                 <div>
                   <div class="px-2 py-0.5 w-max rounded bg-auris-orange/20 text-auris-orange text-[9px] font-mono font-bold">LAYER 4</div>
-                  <h3 class="font-tactical font-bold text-sm text-white mt-1">ADAPTIVE REPLAN</h3>
+                  <h3 class="font-tactical font-bold text-sm text-white mt-1">ADAPTIVE DECISION</h3>
                   <ul class="text-[11px] font-mono text-slate-400 space-y-1 mt-1.5">
-                    <li>• Next-Best-View (NBV) Generator</li>
-                    <li>• Dynamic Rubble Avoidance</li>
-                    <li>• Battery & Comms Watchdog</li>
-                    <li>• Auto NDRF Incident Dispatch</li>
+                    <li>• Next-Best-View Repositioning</li>
+                    <li>• Search Memory Tracking</li>
+                    <li>• Risk, Battery & Comms State</li>
+                    <li>• Continuous Mission Updates</li>
                   </ul>
                 </div>
-                <div class="text-[10px] font-mono text-auris-orange bg-slate-900/80 p-1.5 rounded text-center">Closed-Loop Replanner</div>
+                <div class="text-[10px] font-mono text-auris-orange bg-slate-900/80 p-1.5 rounded text-center">Adaptive Replanner</div>
               </div>
             </div>
           </div>
 
           <div class="flex justify-between text-xs font-mono text-slate-400 border-t border-auris-border/40 pt-2">
             <span>SENSE ➔ PROCESS ➔ FUSE ➔ VERIFY ➔ REINSPECT ➔ PRIORITIZE ➔ REPLAN</span>
-            <span>EDGE COMPUTING: 13.2 TOPS</span>
+            <span>EDGE COMPUTING: RASPBERRY PI 5 + AI HAT+</span>
           </div>
         </div>
       `;
     }
 
-    function renderSection06_1() {
-      return `
-        <div class="h-full flex flex-col justify-between space-y-3 pb-2 animate-fade-in">
-          <div class="flex justify-between items-center border-b border-auris-border/40 pb-2">
-            <div class="text-xs font-mono text-auris-cyan tracking-widest flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-auris-cyan"></span>
-              SECTION 06.1 • PROTOTYPE DEMONSTRATION
-            </div>
-            <div class="text-xs font-mono text-slate-400">GRID 1: PHYSICAL HEXACOPTER PLATFORM</div>
-          </div>
-
-          <div class="my-auto space-y-3">
-            <div class="flex justify-between items-end">
-              <div>
-                <h2 class="font-tactical text-2xl lg:text-3xl font-bold text-white">
-                  Industrial <span class="text-auris-cyan">AURIS Flight Test Platform</span>
-                </h2>
-                <p class="text-slate-400 text-xs font-mono">Fully integrated flight vehicle, dual-brain avionics, and multimodal sensor rig.</p>
-              </div>
-              <div class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-xs font-mono text-auris-cyan">
-                AIRWORTHY TEST RIG
-              </div>
-            </div>
-
-            <!-- Hardware Breakdown Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div class="p-3 bg-auris-panel hud-border rounded-xl space-y-1.5">
-                <div class="text-xs font-mono text-auris-orange font-bold">01. FLIGHT VEHICLE & AVIONICS</div>
-                <div class="font-tactical font-bold text-white text-sm">Pixhawk 2.4.8 + ArduCopter 4.5</div>
-                <ul class="text-[11px] text-slate-300 space-y-1">
-                  <li>• Custom carbon-fiber hexacopter chassis</li>
-                  <li>• 6x 850KV BLDC motors with 1045 props</li>
-                  <li>• Dual IMU & EKF3 state estimation</li>
-                  <li>• Optical Flow + LiDAR altimeter hold</li>
-                  <li>• SIYI HM30 long-range telemetry link</li>
-                </ul>
-              </div>
-
-              <div class="p-3 bg-auris-panel hud-border rounded-xl space-y-1.5">
-                <div class="text-xs font-mono text-emerald-400 font-bold">02. ONBOARD EDGE COMPUTING</div>
-                <div class="font-tactical font-bold text-white text-sm">Raspberry Pi 5 + AI HAT+</div>
-                <ul class="text-[11px] text-slate-300 space-y-1">
-                  <li>• Quad-core 64-bit Arm Cortex-A76 @ 2.4GHz</li>
-                  <li>• Hailo-8 NPU delivering 13.2 TOPS</li>
-                  <li>• MAVLink/DroneKit companion link</li>
-                  <li>• Local RTSP streaming & video recording</li>
-                  <li>• Linux RT kernel for deterministic control</li>
-                </ul>
-              </div>
-
-              <div class="p-3 bg-auris-panel hud-border rounded-xl space-y-1.5">
-                <div class="text-xs font-mono text-auris-cyan font-bold">03. MULTIMODAL SENSOR POD</div>
-                <div class="font-tactical font-bold text-white text-sm">Integrated Sensor Array</div>
-                <ul class="text-[11px] text-slate-300 space-y-1">
-                  <li>• 1080p Optical RGB Camera (Wide Angle)</li>
-                  <li>• MLX90640 Far-Infrared Thermal Sensor</li>
-                  <li>• RPLIDAR A1M8 360° laser scanner</li>
-                  <li>• Quad MEMS directional acoustic array</li>
-                  <li>• MQ-2 / MQ-135 Gas & Environmental</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Platform Spec Bar -->
-            <div class="grid grid-cols-4 gap-2 text-center text-xs font-mono">
-              <div class="p-1.5 bg-slate-900 border border-slate-700 rounded">
-                <div class="text-slate-400">FLIGHT TIME</div>
-                <div class="text-white font-bold">28 MINS (6S)</div>
-              </div>
-              <div class="p-1.5 bg-slate-900 border border-slate-700 rounded">
-                <div class="text-slate-400">MAX SPEED</div>
-                <div class="text-auris-cyan font-bold">12.5 M/S</div>
-              </div>
-              <div class="p-1.5 bg-slate-900 border border-slate-700 rounded">
-                <div class="text-slate-400">PAYLOAD</div>
-                <div class="text-auris-yellow font-bold">1.85 KG</div>
-              </div>
-              <div class="p-1.5 bg-slate-900 border border-slate-700 rounded">
-                <div class="text-slate-400">RADIUS</div>
-                <div class="text-emerald-400 font-bold">5.0 KM</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-between text-xs font-mono text-slate-400 border-t border-auris-border/40 pt-2">
-            <span>PHYSICAL HARDWARE SPECIFICATION</span>
-            <span>HEXACOPTER • DUAL COMPUTE • AIRWORTHY</span>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderSection06_2() {
+    function renderSection06() {
       return `
         <div class="h-full flex flex-col justify-between space-y-3 pb-2 animate-fade-in">
           <div class="flex justify-between items-center border-b border-auris-border/40 pb-2">
             <div class="text-xs font-mono text-auris-cyan tracking-widest flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-auris-cyan animate-pulse"></span>
-              SECTION 06.2 • PROTOTYPE DEMONSTRATION
+              SECTION 06 • PROTOTYPE & INTELLIGENCE DEMONSTRATION
             </div>
-            <div class="text-xs font-mono text-slate-400">GRID 2: MULTIMODAL PERCEPTION (4-WAY LIVE FEED)</div>
+            <div class="text-xs font-mono text-slate-400">HARDWARE RIG, PERCEPTION & VERIFICATION</div>
           </div>
 
-          <!-- 4-Way Perception Feeds Screen -->
-          <div class="my-auto space-y-2.5">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <!-- Channel 1: Optical RGB -->
-              <div class="p-2.5 bg-auris-card hud-border rounded-xl space-y-1.5">
-                <div class="flex justify-between items-center">
-                  <span class="text-xs font-tactical font-bold text-auris-cyan">CH-01: RGB OPTICAL CAMERA (1080P)</span>
-                  <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">YOLOv8: 30 FPS</span>
-                </div>
-                <div class="relative h-32 bg-slate-950 rounded-lg overflow-hidden border border-slate-800 flex items-center justify-center">
-                  <div class="text-center space-y-0.5">
-                    <div class="text-2xl">📹</div>
-                    <div class="text-[10px] font-mono text-slate-400">DISASTER RUBBLE FIELD</div>
-                  </div>
-                  <div class="absolute top-4 left-6 border-2 border-auris-yellow/80 bg-auris-yellow/10 px-2 py-0.5 text-[9px] font-mono text-auris-yellow">
-                    SURVIVOR CANDIDATE #01 [61%]
-                  </div>
-                  <div class="absolute bottom-1.5 left-2 text-[9px] font-mono text-slate-400 bg-black/60 px-1 rounded">
-                    FOV: 90° | GAIN: AUTO
-                  </div>
-                </div>
+          <div class="my-auto space-y-3">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <!-- Grid 1: Physical Hardware Rig -->
+              <div class="p-3 bg-auris-panel hud-border rounded-xl space-y-1.5">
+                <div class="text-xs font-mono text-auris-orange font-bold">01. PHYSICAL PLATFORM</div>
+                <div class="font-tactical font-bold text-white text-sm">Pixhawk + RPi 5 + Multimodal Sensors</div>
+                <ul class="text-[11px] text-slate-300 space-y-1">
+                  <li>• Hexacopter Airframe & BLDC propulsion</li>
+                  <li>• Pixhawk Flight Controller manages flight</li>
+                  <li>• Raspberry Pi 5 handles AI & Edge compute</li>
+                  <li>• RGB, Thermal, LiDAR, Optical Flow & GPS</li>
+                </ul>
               </div>
 
-              <!-- Channel 2: Thermal FIR Heatmap -->
-              <div class="p-2.5 bg-auris-card hud-border rounded-xl space-y-1.5">
-                <div class="flex justify-between items-center">
-                  <span class="text-xs font-tactical font-bold text-auris-orange">CH-02: MLX90640 THERMAL FIR (32×24)</span>
-                  <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-amber-400">MAX: 37.1°C</span>
-                </div>
-                <div class="relative h-32 bg-gradient-to-r from-purple-900 via-rose-800 to-amber-500 rounded-lg overflow-hidden border border-slate-800 flex items-center justify-center">
-                  <div class="absolute w-12 h-12 rounded-full bg-amber-300/80 blur-md animate-pulse"></div>
-                  <div class="relative z-10 text-center font-mono text-[11px] text-white font-bold bg-black/50 px-2 py-0.5 rounded">
-                    HEAT ANOMALY: 37.1°C (HUMAN BODY)
-                  </div>
-                  <div class="absolute bottom-1.5 left-2 text-[9px] font-mono text-white bg-black/60 px-1 rounded">
-                    PALETTE: IRONBOW | CALIBRATED
-                  </div>
-                </div>
+              <!-- Grid 2: 4-Way Perception Feeds -->
+              <div class="p-3 bg-auris-panel hud-border rounded-xl space-y-1.5">
+                <div class="text-xs font-mono text-emerald-400 font-bold">02. MULTIMODAL PERCEPTION</div>
+                <div class="font-tactical font-bold text-white text-sm">See • Sense • Hear • Understand</div>
+                <ul class="text-[11px] text-slate-300 space-y-1">
+                  <li>• RGB: Survivor & hazard visual candidates</li>
+                  <li>• Thermal: Heat signatures in low visibility</li>
+                  <li>• Acoustic: Potential sounds with noise cancellation</li>
+                  <li>• LiDAR: Spatial awareness & obstacle clearance</li>
+                </ul>
               </div>
 
-              <!-- Channel 3: Acoustic Beamforming -->
-              <div class="p-2.5 bg-auris-card hud-border rounded-xl space-y-1.5">
-                <div class="flex justify-between items-center">
-                  <span class="text-xs font-tactical font-bold text-auris-yellow">CH-03: ACOUSTIC MEMS ARRAY (DENOISED)</span>
-                  <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-auris-yellow">300Hz - 3.4kHz</span>
-                </div>
-                <div class="relative h-32 bg-slate-950 rounded-lg overflow-hidden border border-slate-800 p-2 flex flex-col justify-between">
-                  <div class="flex items-center justify-between text-[9px] font-mono text-slate-400">
-                    <span>BEARING: 042°</span>
-                    <span class="text-emerald-400">CRY MATCH (72%)</span>
-                  </div>
-                  <div class="flex items-end justify-center space-x-1 h-14">
-                    <div class="w-1.5 bg-auris-yellow/60 rounded h-5 animate-pulse"></div>
-                    <div class="w-1.5 bg-auris-yellow/80 rounded h-9 animate-pulse" style="animation-delay: 0.1s;"></div>
-                    <div class="w-1.5 bg-auris-yellow rounded h-12 animate-pulse" style="animation-delay: 0.2s;"></div>
-                    <div class="w-1.5 bg-auris-yellow rounded h-10 animate-pulse" style="animation-delay: 0.3s;"></div>
-                    <div class="w-1.5 bg-auris-yellow/70 rounded h-6 animate-pulse" style="animation-delay: 0.15s;"></div>
-                    <div class="w-1.5 bg-auris-yellow/90 rounded h-13 animate-pulse" style="animation-delay: 0.25s;"></div>
-                    <div class="w-1.5 bg-auris-yellow/50 rounded h-4 animate-pulse"></div>
-                  </div>
-                  <div class="text-[9px] font-mono text-slate-400 text-center">
-                    SPECTRAL SUBTRACTION (-24dB ROTOR NOISE)
-                  </div>
-                </div>
+              <!-- Grid 3: Active Verification Loop -->
+              <div class="p-3 bg-auris-panel hud-border rounded-xl space-y-1.5">
+                <div class="text-xs font-mono text-auris-cyan font-bold">03. ACTIVE VERIFICATION</div>
+                <div class="font-tactical font-bold text-white text-sm">Detecting ➔ Intelligently Verifying</div>
+                <ul class="text-[11px] text-slate-300 space-y-1">
+                  <li>• Identifies uncertain candidate</li>
+                  <li>• Marks area for further investigation</li>
+                  <li>• Repositions drone to select better viewpoint</li>
+                  <li>• Combines new and previous evidence</li>
+                </ul>
               </div>
+            </div>
 
-              <!-- Channel 4: 3D LiDAR Scanner -->
-              <div class="p-2.5 bg-auris-card hud-border rounded-xl space-y-1.5">
-                <div class="flex justify-between items-center">
-                  <span class="text-xs font-tactical font-bold text-emerald-400">CH-04: RPLIDAR A1M8 360° LASER SCAN</span>
-                  <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-emerald-400">8000 SAMPLES/S</span>
-                </div>
-                <div class="relative h-32 bg-slate-950 rounded-lg overflow-hidden border border-slate-800 flex items-center justify-center">
-                  <div class="w-20 h-20 rounded-full border border-emerald-500/30 flex items-center justify-center relative">
-                    <div class="w-14 h-14 rounded-full border border-dashed border-emerald-500/20"></div>
-                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
-                    <div class="absolute inset-0 origin-center animate-spin" style="animation-duration: 4s;">
-                      <div class="w-1/2 h-0.5 bg-gradient-to-r from-transparent to-emerald-400"></div>
-                    </div>
-                  </div>
-                  <div class="absolute bottom-1.5 right-2 text-[9px] font-mono text-emerald-400 bg-black/60 px-1 rounded">
-                    DISTANCE: 2.8M (CLEAR)
-                  </div>
-                </div>
+            <!-- Escalation Comparison Banner -->
+            <div class="p-3 bg-auris-card hud-border rounded-xl flex flex-col md:flex-row items-center justify-between gap-2 text-xs font-mono">
+              <div class="text-slate-300">
+                <b class="text-white">CONVENTIONAL SYSTEM:</b> Stops at uncertainty ➔ <span class="text-rose-400">Risk of false negative.</span>
+              </div>
+              <div class="text-slate-300">
+                <b class="text-auris-cyan">AURIS:</b> Gathers multi-angle observations ➔ <span class="text-emerald-400 font-bold">Intelligently verified rescue.</span>
               </div>
             </div>
           </div>
 
           <div class="flex justify-between text-xs font-mono text-slate-400 border-t border-auris-border/40 pt-2">
-            <span>FOUR SYNCHRONIZED COMPLEMENTARY PERCEPTION MODALITIES</span>
-            <span>SEE • HEAT • HEAR • MAP</span>
+            <span>HEXACOPTER RIG • 4-WAY PERCEPTION • NEXT-BEST-VIEW VERIFICATION</span>
+            <span>PROTOTYPE DEMONSTRATION</span>
           </div>
         </div>
       `;
     }
 
-    function renderSection06_3() {
-      return `
-        <div class="h-full flex flex-col justify-between space-y-3 pb-2 animate-fade-in">
-          <div class="flex justify-between items-center border-b border-auris-border/40 pb-2">
-            <div class="text-xs font-mono text-auris-yellow tracking-widest flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-auris-yellow animate-ping"></span>
-              SECTION 06.3 • THE HERO DEMONSTRATION
-            </div>
-            <div class="text-xs font-mono text-slate-400">GRID 3: UNCERTAINTY & NEXT-BEST-VIEW REINSPECTION</div>
-          </div>
-
-          <!-- Hero NBV Reinspection Workflow -->
-          <div class="my-auto space-y-3.5">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 items-center">
-              
-              <!-- Left: Viewpoint A (Uncertain) -->
-              <div class="lg:col-span-4 p-3.5 bg-rose-950/40 border border-rose-600/50 rounded-xl space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="text-xs font-mono font-bold text-rose-400">STAGE 1: INITIAL (VIEW A)</span>
-                  <span class="text-[9px] font-mono bg-rose-900/80 px-1.5 py-0.5 rounded text-white">OCCLUDED</span>
-                </div>
-                <div class="space-y-1.5 text-[11px] font-mono">
-                  <div class="flex justify-between">
-                    <span class="text-slate-400">RGB Optical:</span>
-                    <span class="text-rose-400 font-bold">61% (Low)</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-slate-400">Thermal Heatmap:</span>
-                    <span class="text-amber-400 font-bold">72% (Medium)</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-slate-400">Acoustic Signal:</span>
-                    <span class="text-rose-400 font-bold">58% (Faint)</span>
-                  </div>
-                </div>
-                <div class="p-2 bg-black/60 rounded border border-rose-700/40 text-center">
-                  <div class="text-[9px] font-mono text-slate-400">FUSED BAYESIAN CONFIDENCE</div>
-                  <div class="text-xl font-tactical font-bold text-rose-400">64% UNCERTAIN</div>
-                  <div class="text-[10px] text-rose-300 mt-0.5">Candidate Unverified</div>
-                </div>
-              </div>
-
-              <!-- Center: Next-Best-View Repositioning Arc -->
-              <div class="lg:col-span-4 flex flex-col items-center justify-center p-3 bg-auris-panel/80 hud-border rounded-xl text-center space-y-2">
-                <div class="text-[11px] font-mono text-auris-cyan font-bold">AUTONOMOUS TRIGGER</div>
-                <div class="font-tactical text-lg font-bold text-white">NEXT-BEST-VIEW (NBV)</div>
-                
-                <div class="relative w-28 h-12 flex items-center justify-center">
-                  <div class="absolute w-20 h-10 border-t-2 border-dashed border-auris-cyan rounded-t-full"></div>
-                  <div class="text-[10px] font-mono text-auris-yellow">120° ORBIT REPOSITION</div>
-                </div>
-
-                <p class="text-[11px] text-slate-300">
-                  AURIS calculates the optimal unobstructed viewpoint vector around the concrete obstacle.
-                </p>
-                <div class="px-2.5 py-0.5 rounded bg-auris-cyan/20 border border-auris-cyan/50 text-auris-cyan font-mono text-[10px] font-bold">
-                  S-CURVE KINEMATICS
-                </div>
-              </div>
-
-              <!-- Right: Viewpoint B (Verified) -->
-              <div class="lg:col-span-4 p-3.5 bg-emerald-950/40 border border-emerald-500/60 rounded-xl space-y-2">
-                <div class="flex justify-between items-center">
-                  <span class="text-xs font-mono font-bold text-emerald-400">STAGE 2: REINSPECT (VIEW B)</span>
-                  <span class="text-[9px] font-mono bg-emerald-900/80 px-1.5 py-0.5 rounded text-white">DIRECT LINE OF SIGHT</span>
-                </div>
-                <div class="space-y-1.5 text-[11px] font-mono">
-                  <div class="flex justify-between">
-                    <span class="text-slate-400">RGB Optical:</span>
-                    <span class="text-emerald-400 font-bold">84% (Clear)</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-slate-400">Thermal Heatmap:</span>
-                    <span class="text-emerald-400 font-bold">91% (Confirmed)</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-slate-400">Acoustic Signal:</span>
-                    <span class="text-emerald-400 font-bold">82% (Coherent)</span>
-                  </div>
-                </div>
-                <div class="p-2 bg-black/60 rounded border border-emerald-500/40 text-center">
-                  <div class="text-[9px] font-mono text-slate-400">FUSED BAYESIAN CONFIDENCE</div>
-                  <div class="text-xl font-tactical font-bold text-emerald-400">91% VERIFIED SURVIVOR</div>
-                  <div class="text-[10px] text-emerald-300 mt-0.5">High-Confidence Dispatch</div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Escalation Comparison -->
-            <div class="p-3 bg-auris-card hud-border rounded-xl flex flex-col md:flex-row items-center justify-between gap-2">
-              <div class="text-[11px] font-mono text-slate-300">
-                <b class="text-white">CONVENTIONAL UAV:</b> Stops at 64% ➔ <span class="text-rose-400">Leaves survivor behind.</span>
-              </div>
-              <div class="text-[11px] font-mono text-slate-300">
-                <b class="text-auris-cyan">AURIS:</b> Gathers multi-angle evidence until confidence reaches <span class="text-emerald-400 font-bold">91%</span> ➔ <span class="text-emerald-300">Dispatches NDRF Squad.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-between text-xs font-mono text-slate-400 border-t border-auris-border/40 pt-2">
-            <span>EVIDENCE FUSION & NEXT-BEST-VIEW CLOSED LOOP</span>
-            <span>UNCERTAINTY ➔ ACTIVE INSPECTION ➔ VERIFIED ACTION</span>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderSection06_4() {
+    function renderSection07() {
       return `
         <div class="h-full flex flex-col justify-between space-y-3 pb-2 animate-fade-in">
           <div class="flex justify-between items-center border-b border-auris-border/40 pb-2">
             <div class="text-xs font-mono text-auris-cyan tracking-widest flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-auris-cyan"></span>
-              SECTION 06.4 • PROTOTYPE DEMONSTRATION
+              SECTION 07 • ADAPTIVE MISSION & DASHBOARD
             </div>
-            <div class="text-xs font-mono text-slate-400">GRID 4: GROUND-STATION DASHBOARD & SAR DISPATCH</div>
+            <div class="text-xs font-mono text-slate-400">GROUND-STATION OPERATIONS & DYNAMIC REPLANNING</div>
           </div>
 
           <div class="my-auto space-y-3">
             <div class="flex justify-between items-end">
               <div>
                 <h2 class="font-tactical text-2xl lg:text-3xl font-bold text-white">
-                  Real-Time <span class="text-auris-cyan">Mission Operations Center</span>
+                  Ground-Station Dashboard & <span class="text-auris-cyan">Adaptive Mission</span>
                 </h2>
-                <p class="text-slate-400 text-xs font-mono">Live telemetry, risk mapping, search memory, and instant NDRF packet dispatch.</p>
+                <p class="text-slate-400 text-xs font-mono">Real-time telemetry, risk factors, and actionable rescue intelligence:</p>
               </div>
               <div class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-xs font-mono text-emerald-400">
-                DATALINK: SIYI HM30 ACTIVE
+                DATALINK: ACTIVE
               </div>
             </div>
 
@@ -1059,16 +817,16 @@
                   </div>
                   <div class="flex justify-between">
                     <span class="text-slate-400">Sector G (Ruins):</span>
-                    <span class="text-amber-400">VERIFIED #089A</span>
+                    <span class="text-amber-400">PRIORITIZED #089A</span>
                   </div>
                   <div class="flex justify-between">
                     <span class="text-slate-400">Sector H (Water):</span>
-                    <span class="text-auris-cyan">QUEUED NBV</span>
+                    <span class="text-auris-cyan">QUEUED REINSPECT</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Right: Incident Packet -->
+              <!-- Right: Incident Packet & Operational Constraints -->
               <div class="lg:col-span-8 p-3.5 bg-gradient-to-br from-slate-900 via-auris-panel to-slate-950 hud-border rounded-xl space-y-2">
                 <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
                   <div class="flex items-center gap-1.5">
@@ -1076,7 +834,7 @@
                     <span class="font-tactical font-bold text-white text-sm">INCIDENT PACKET: #SAR-2026-089A</span>
                   </div>
                   <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/40">
-                    DISPATCHED TO NDRF
+                    ACTIONABLE RESCUE DISPATCH
                   </span>
                 </div>
 
@@ -1086,15 +844,15 @@
                     <div class="text-white font-bold">13.0827° N, 80.2707° E</div>
                   </div>
                   <div class="p-1.5 bg-slate-900/90 rounded">
-                    <div class="text-slate-400">VICTIM CONFIDENCE</div>
+                    <div class="text-slate-400">CONFIDENCE</div>
                     <div class="text-emerald-400 font-bold">91.4% (VERIFIED)</div>
                   </div>
                   <div class="p-1.5 bg-slate-900/90 rounded">
-                    <div class="text-slate-400">HEAT SIGNATURE</div>
-                    <div class="text-amber-400 font-bold">37.1°C CORE BODY</div>
+                    <div class="text-slate-400">CORE BODY TEMP</div>
+                    <div class="text-amber-400 font-bold">37.1°C RADIOMETRIC</div>
                   </div>
                   <div class="p-1.5 bg-slate-900/90 rounded">
-                    <div class="text-slate-400">STRUCTURAL HAZARDS</div>
+                    <div class="text-slate-400">STRUCTURAL HAZARD</div>
                     <div class="text-rose-400 font-bold">CONCRETE COLLAPSE</div>
                   </div>
                   <div class="p-1.5 bg-slate-900/90 rounded">
@@ -1102,93 +860,93 @@
                     <div class="text-auris-cyan font-bold">USAR EXTRACTION</div>
                   </div>
                   <div class="p-1.5 bg-slate-900/90 rounded">
-                    <div class="text-slate-400">APPROACH CORRIDOR</div>
+                    <div class="text-slate-400">SAFE CORRIDOR</div>
                     <div class="text-emerald-400 font-bold">SECTOR ALPHA</div>
                   </div>
                 </div>
 
                 <div class="p-2 bg-slate-900/90 rounded border border-slate-700 text-[11px] font-mono text-slate-300">
-                  <b class="text-auris-cyan">CLOSED-LOOP MISSION UPDATE:</b> Hexacopter ascending to 20m AGL to resume secondary recon sweep over flood sector.
+                  <b class="text-auris-cyan">DYNAMIC MISSION REPLANNING:</b> Drone does not simply follow a fixed route — mission adapts based on discovered clues, battery, comms and environmental risk.
                 </div>
               </div>
             </div>
           </div>
 
           <div class="flex justify-between text-xs font-mono text-slate-400 border-t border-auris-border/40 pt-2">
-            <span>SEARCH MEMORY ➔ UNCERTAINTY ➔ NEXT ACTION ➔ MISSION UPDATE</span>
-            <span>END-TO-END RESCUE DISPATCH</span>
+            <span>CONTINUOUS CLOSED-LOOP: SENSE • VERIFY • DECIDE • REPLAN</span>
+            <span>ACTIONABLE RESCUE INTELLIGENCE</span>
           </div>
         </div>
       `;
     }
 
-    function renderSection07() {
+    function renderSection08() {
       return `
         <div class="h-full flex flex-col justify-between space-y-3 pb-2 animate-fade-in">
           <div class="flex justify-between items-center border-b border-auris-border/40 pb-2">
             <div class="text-xs font-mono text-auris-cyan tracking-widest flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-auris-cyan"></span>
-              SECTION 07 • INNOVATION & CLOSING
+              SECTION 08 • INNOVATION & CLOSING
             </div>
             <div class="text-xs font-mono text-slate-400">SMART INDIA HACKATHON 2026</div>
           </div>
 
           <div class="my-auto space-y-3">
             <div class="text-center space-y-0.5">
-              <div class="text-[10px] font-mono text-auris-cyan font-bold tracking-wider uppercase">The 6 Pillars of AURIS</div>
+              <div class="text-[10px] font-mono text-auris-cyan font-bold tracking-wider uppercase">The 5 Pillars of Innovation</div>
               <h2 class="font-tactical text-2xl lg:text-4xl font-extrabold text-white">
                 Adaptive Rescue <span class="text-auris-cyan text-glow-cyan">Intelligence</span>
               </h2>
             </div>
 
-            <!-- 6 Innovation Cards -->
+            <!-- 5 Innovation Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
               <div class="p-2.5 bg-auris-card/90 hud-border rounded-xl space-y-1">
                 <div class="flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-auris-cyan"></span>
-                  <span class="font-tactical font-bold text-white text-xs">1. ADAPTIVE RESCUE INTELLIGENCE</span>
-                </div>
-                <p class="text-xs text-slate-300">Transforms ambiguous sensor data into proactive flight decisions.</p>
-              </div>
-
-              <div class="p-2.5 bg-auris-card/90 hud-border rounded-xl space-y-1">
-                <div class="flex items-center gap-1.5">
                   <span class="w-2 h-2 rounded-full bg-auris-orange"></span>
-                  <span class="font-tactical font-bold text-white text-xs">2. UNCERTAINTY-AWARE SEARCH</span>
+                  <span class="font-tactical font-bold text-white text-xs">1. UNCERTAINTY-AWARE SEARCH</span>
                 </div>
-                <p class="text-xs text-slate-300">"Not detected ≠ not present" — eliminating false negatives in occluded ruins.</p>
+                <p class="text-xs text-slate-300">Because "not detected does not mean not present" — eliminating false negatives.</p>
               </div>
 
               <div class="p-2.5 bg-auris-card/90 hud-border rounded-xl space-y-1">
                 <div class="flex items-center gap-1.5">
                   <span class="w-2 h-2 rounded-full bg-auris-yellow"></span>
-                  <span class="font-tactical font-bold text-white text-xs">3. MULTI-SENSOR VERIFICATION</span>
+                  <span class="font-tactical font-bold text-white text-xs">2. MULTI-SENSOR VERIFICATION</span>
                 </div>
-                <p class="text-xs text-slate-300">Bayesian cross-validation of RGB, Thermal, and Acoustic signals.</p>
+                <p class="text-xs text-slate-300">RGB, thermal, and acoustic evidence combined to strengthen survivor assessments.</p>
               </div>
 
               <div class="p-2.5 bg-auris-card/90 hud-border rounded-xl space-y-1">
                 <div class="flex items-center gap-1.5">
                   <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  <span class="font-tactical font-bold text-white text-xs">4. NEXT-BEST-VIEW REINSPECTION</span>
+                  <span class="font-tactical font-bold text-white text-xs">3. NEXT-BEST-VIEW REINSPECTION</span>
                 </div>
-                <p class="text-xs text-slate-300">Active perception algorithm orbiting around blind spots to uncover hidden victims.</p>
+                <p class="text-xs text-slate-300">Gathers additional evidence from better viewpoints when current line-of-sight is insufficient.</p>
               </div>
 
               <div class="p-2.5 bg-auris-card/90 hud-border rounded-xl space-y-1">
                 <div class="flex items-center gap-1.5">
                   <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-                  <span class="font-tactical font-bold text-white text-xs">5. SPATIAL SEARCH MEMORY</span>
+                  <span class="font-tactical font-bold text-white text-xs">4. SEARCH MEMORY</span>
                 </div>
-                <p class="text-xs text-slate-300">Maintains 3D voxel grid of explored, occluded, and uncertain sectors.</p>
+                <p class="text-xs text-slate-300">Tracks explored and uncertain areas to support more informed search patterns.</p>
               </div>
 
               <div class="p-2.5 bg-auris-card/90 hud-border rounded-xl space-y-1">
                 <div class="flex items-center gap-1.5">
                   <span class="w-2 h-2 rounded-full bg-rose-400"></span>
-                  <span class="font-tactical font-bold text-white text-xs">6. RISK-AWARE MISSION PLANNING</span>
+                  <span class="font-tactical font-bold text-white text-xs">5. RISK-AWARE PLANNING</span>
                 </div>
-                <p class="text-xs text-slate-300">Dynamically balances victim urgency against battery, hazard zones, and comms.</p>
+                <p class="text-xs text-slate-300">Considers hazards, battery, communication, and search priorities dynamically.</p>
+              </div>
+
+              <div class="p-2.5 bg-auris-card/90 hud-border rounded-xl space-y-1">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-auris-cyan"></span>
+                  <span class="font-tactical font-bold text-white text-xs">CONTINUOUS CLOSED-LOOP</span>
+                </div>
+                <p class="text-xs text-slate-300">Sense ➔ Verify ➔ Decide ➔ Replan: Transforming data into action.</p>
               </div>
             </div>
 
@@ -1198,13 +956,13 @@
                 “Because in a disaster, seeing everything is impossible. But an intelligent system can decide <span class="text-auris-cyan font-bold">what to look at next</span>.”
               </p>
               <div class="text-xs font-mono text-auris-yellow font-bold">
-                AURIS • SENSE • VERIFY • DECIDE • REPLAN • SMART INDIA HACKATHON 2026
+                AURIS • SENSE • VERIFY • DECIDE • REPLAN • TEAM NEXUS FORGE
               </div>
             </div>
           </div>
 
           <div class="flex justify-between text-xs font-mono text-slate-400 border-t border-auris-border/40 pt-2">
-            <span>TEAM AURIS • SIH 2026</span>
+            <span>TEAM NEXUS FORGE • SIH 2026</span>
             <span>THANK YOU</span>
           </div>
         </div>
@@ -1219,7 +977,7 @@
       navDots.innerHTML = "";
       SECTIONS.forEach((sec, idx) => {
         const dot = document.createElement("button");
-        dot.className = `w-5 sm:w-6 h-2 rounded-sm transition-all duration-300 ${idx === 0 ? 'bg-auris-cyan w-8' : 'bg-slate-700 hover:bg-slate-500'}`;
+        dot.className = `w-4 sm:w-5 h-2 rounded-sm transition-all duration-300 ${idx === 0 ? 'bg-auris-cyan w-7' : 'bg-slate-700 hover:bg-slate-500'}`;
         dot.title = sec.title;
         dot.onclick = () => jumpToSection(idx);
         navDots.appendChild(dot);
@@ -1234,10 +992,11 @@
       // Update Slide HTML
       slideContent.innerHTML = sec.render();
       currentSectionTitle.textContent = `${sec.num}. ${sec.title}`;
+      subtitleText.textContent = sec.sub || "";
       
       // Update nav dots
       Array.from(navDots.children).forEach((d, i) => {
-        d.className = `h-2 rounded-sm transition-all duration-300 ${i === idx ? 'bg-auris-cyan w-8 shadow-lg shadow-auris-cyan/50' : 'bg-slate-700 hover:bg-slate-500 w-5 sm:w-6'}`;
+        d.className = `h-2 rounded-sm transition-all duration-300 ${i === idx ? 'bg-auris-cyan w-7 shadow-lg shadow-auris-cyan/50' : 'bg-slate-700 hover:bg-slate-500 w-4 sm:w-5'}`;
       });
 
       // Update Audio Source
